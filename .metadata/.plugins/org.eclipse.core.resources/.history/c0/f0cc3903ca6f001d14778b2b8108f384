@@ -1,0 +1,16 @@
+/*
+ * global.h
+ *
+ *  Created on: Nov 29, 2022
+ *      Author: ADMIN
+ */
+
+#ifndef INC_GLOBAL_H_
+#define INC_GLOBAL_H_
+
+#include <stdio.h>
+#include "main.h"
+#include "software_timer.h"
+#include "state.h"
+
+#endif /* INC_GLOBAL_H_ */

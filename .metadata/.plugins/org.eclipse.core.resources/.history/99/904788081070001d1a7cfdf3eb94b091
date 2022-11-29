@@ -1,0 +1,74 @@
+/*
+ * command_parser.c
+ *
+ *  Created on: Nov 29, 2022
+ *      Author: ADMIN
+ */
+
+
+#include "command_parser.h"
+
+uint8_t buffer[MAX_BUFFER_SIZE];
+uint8_t buffer_index = 0;
+
+char * string_buffer;
+
+int isRST = 1;
+int isOK = 1;
+
+void clearBuffer(void);
+int isRSTCmd(void);
+int isOKCmd(void);
+
+void command_parser_fsm(void) {
+	switch(sysState) {
+	case WAIT_MODE:
+		if(isRSTCmd() == 0) {
+			setTimer3(0);
+			printData = 1;
+			sysState = PRINT_MODE;
+		}
+
+		if(isOKCmd() == 0) {
+			setTimer3(0);
+			printData = 0;
+		}
+		break;
+
+	case PRINT_MODE:
+		setTimer3(PARSER_TIMEOUT);
+		printData = 0;
+		sysState = WAIT_MODE;
+		break;
+	}
+}
+
+void updateBuffer(uint8_t updated) {
+	uint8_t * newLine = (uint8_t *)"\r\n";
+	if(updated == *newLine) {
+		isRST = isRSTCmd();
+		isOK = isOKCmd();
+		clearBuffer();
+	}
+	else {
+		buffer[buffer_index] = updated;
+		buffer_index = (buffer_index + 1) % MAX_BUFFER_SIZE;
+	}
+	string_buffer = (char *)buffer;
+}
+
+void clearBuffer(void) {
+	for(uint8_t index = 0; index < buffer_index; index++) {
+		buffer[index] = 0;
+	}
+}
+
+int isRSTCmd(void) {
+	char * requestCmd = (char *)"!RST#";
+	return strcmp(string_buffer, requestCmd);
+}
+
+int isOKCmd(void) {
+	char * stopCmd = (char *)"!OK#";
+	return strcmp(string_buffer, stopCmd);
+}

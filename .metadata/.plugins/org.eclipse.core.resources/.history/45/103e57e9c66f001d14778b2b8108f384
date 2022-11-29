@@ -1,0 +1,26 @@
+/*
+ * global.h
+ *
+ *  Created on: Nov 29, 2022
+ *      Author: ADMIN
+ */
+
+#ifndef INC_GLOBAL_H_
+#define INC_GLOBAL_H_
+
+#include "software_timer.h"
+
+typedef enum {
+	INIT,
+	WAITING,
+	READY
+} sensorReaderState;
+
+typedef enum {
+	INIT,
+	WAITING,
+	PRINTING,
+	INTERRUPTED
+} commandParserState;
+
+#endif /* INC_GLOBAL_H_ */

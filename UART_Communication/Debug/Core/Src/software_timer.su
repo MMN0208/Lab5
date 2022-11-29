@@ -1,0 +1,5 @@
+../Core/Src/software_timer.c:23:6:setTrafficTimer	16	static
+../Core/Src/software_timer.c:30:6:setTimer1	16	static
+../Core/Src/software_timer.c:37:6:setTimer2	16	static
+../Core/Src/software_timer.c:45:6:setTimer3	16	static
+../Core/Src/software_timer.c:52:6:timerRun	4	static

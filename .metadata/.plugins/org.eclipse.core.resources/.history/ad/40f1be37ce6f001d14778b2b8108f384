@@ -1,0 +1,31 @@
+/*
+ * sensor_reader.c
+ *
+ *  Created on: Nov 29, 2022
+ *      Author: ADMIN
+ */
+
+
+#include "sensor_reader.h"
+
+void sensor_reader_fsm(void) {
+	switch(readerState) {
+	case READER_INIT:
+		// Set timer for sensor reading timeout
+		setTimer2(SENSOR_READ_PERIOD);
+		ADC_value = 0;
+		readerState = READER_READY;
+		break;
+
+	case READER_WAIT:
+		if(printData) {
+			readerState = READER_INIT;
+		}
+	}
+}
+
+void readSensor(void) {
+	char * str = (char *)'0';
+	ADC_value = HAL_ADC_GetValue(&hadc1);
+	HAL_UART_Transmit(&huart2, (uint8_t *)str, sprintf(str, "!ADC=%ld\r\n", ADC_value), 1000);
+}

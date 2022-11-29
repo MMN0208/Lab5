@@ -1,0 +1,29 @@
+/*
+ * states.h
+ *
+ *  Created on: Nov 29, 2022
+ *      Author: ADMIN
+ */
+
+#ifndef INC_STATES_H_
+#define INC_STATES_H_
+
+typedef enum {
+	INIT,
+	WAITING,
+	PRINTING
+} sensorReaderState;
+
+typedef enum {
+	INIT,
+	WAITING,
+	PRINTING,
+	INTERRUPTED
+} commandParserState;
+
+typedef enum {
+	LED_INIT,
+	LED_BLINKING,
+} ledBlinkyState;
+
+#endif /* INC_STATES_H_ */

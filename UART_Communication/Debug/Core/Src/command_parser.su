@@ -1,0 +1,5 @@
+../Core/Src/command_parser.c:22:6:command_parser_fsm	8	static
+../Core/Src/command_parser.c:54:6:updateBuffer	24	static
+../Core/Src/command_parser.c:68:6:clearBuffer	16	static
+../Core/Src/command_parser.c:75:9:isRSTCmd	16	static
+../Core/Src/command_parser.c:83:9:isOKCmd	16	static

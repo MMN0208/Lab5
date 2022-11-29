@@ -1,0 +1,2 @@
+../Core/Src/sensor_reader.c:11:6:uart_communication_fsm	8	static
+../Core/Src/sensor_reader.c:40:6:readSensor	16	static
