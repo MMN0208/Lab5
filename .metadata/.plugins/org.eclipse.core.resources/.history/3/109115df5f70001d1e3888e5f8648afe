@@ -8,7 +8,7 @@
 
 #include "global.h"
 
-systemState sysState = START_MODE;
+systemState sysState = WAIT_MODE;
 sensorReaderState readerState = READER_INIT;
 ledBlinkyState ledState = LED_INIT;
 

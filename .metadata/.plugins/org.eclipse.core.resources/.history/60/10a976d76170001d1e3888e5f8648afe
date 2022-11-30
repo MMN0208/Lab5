@@ -38,7 +38,7 @@ void uart_communication_fsm(void) {
 }
 
 void readSensor(void) {
-	char str[50];
+	char * str = (char *)'0';
 	ADC_value = HAL_ADC_GetValue(&hadc1);
-	HAL_UART_Transmit(&huart2, (uint8_t *)str, sprintf(str, "!ADC=%ld#\r\n", ADC_value), 1000);
+	HAL_UART_Transmit(&huart2, (uint8_t *)str, sprintf(str, "!ADC=%ld\r\n", ADC_value), 1000);
 }

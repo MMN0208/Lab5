@@ -58,11 +58,7 @@ void command_parser_fsm(void) {
 			clearBuffer();
 			printData = 1;
 			sysState = PRINT_MODE;
-			break;
 		}
-
-		setTimer3(PARSER_TIMEOUT);
-		break;
 	}
 }
 

@@ -28,29 +28,11 @@ void command_parser_fsm(void) {
 			printData = 1;
 			sysState = PRINT_MODE;
 		}
-		break;
-
-	case PRINT_MODE:
-		setTimer3(PARSER_TIMEOUT);
-		printData = 0;
-		sysState = WAIT_MODE;
-		break;
-
-	case WAIT_MODE:
-		if(isRST == 1) {
-			setTimer3(0);
-			isRST = 0;
-			printData = 1;
-			sysState = PRINT_MODE;
-			break;
-		}
 
 		if(isOK == 1) {
 			setTimer3(0);
 			isOK = 0;
 			printData = 0;
-			sysState = START_MODE;
-			break;
 		}
 
 		if(timer3_flag == 1) {
@@ -58,10 +40,13 @@ void command_parser_fsm(void) {
 			clearBuffer();
 			printData = 1;
 			sysState = PRINT_MODE;
-			break;
 		}
+		break;
 
+	case PRINT_MODE:
 		setTimer3(PARSER_TIMEOUT);
+		printData = 0;
+		sysState = WAIT_MODE;
 		break;
 	}
 }

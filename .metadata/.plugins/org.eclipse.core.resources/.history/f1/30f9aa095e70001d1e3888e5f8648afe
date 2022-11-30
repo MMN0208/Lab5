@@ -104,10 +104,11 @@ int main(void)
   while (1)
   {
 	led_blinky_fsm();
-	if(buffer_flag == 1 || timer3_flag == 1) {
-		if(buffer_flag == 1) {
-			buffer_flag = 0;
-		}
+	if(buffer_flag == 1) {
+		buffer_flag = 0;
+		command_parser_fsm();
+	}
+	if(timer3_flag == 1) {
 		command_parser_fsm();
 	}
 	uart_communication_fsm();

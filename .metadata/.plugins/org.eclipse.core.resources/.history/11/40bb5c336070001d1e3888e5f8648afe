@@ -60,9 +60,6 @@ void command_parser_fsm(void) {
 			sysState = PRINT_MODE;
 			break;
 		}
-
-		setTimer3(PARSER_TIMEOUT);
-		break;
 	}
 }
 

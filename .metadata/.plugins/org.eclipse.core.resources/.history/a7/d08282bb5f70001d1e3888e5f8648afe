@@ -21,10 +21,23 @@ uint8_t isOKCmd(void);
 
 void command_parser_fsm(void) {
 	switch(sysState) {
-	case START_MODE:
+	case WAIT_MODE:
 		if(isRST == 1) {
 			setTimer3(0);
 			isRST = 0;
+			printData = 1;
+			sysState = PRINT_MODE;
+		}
+
+		if(isOK == 1) {
+			setTimer3(0);
+			isOK = 0;
+			printData = 0;
+		}
+
+		if(timer3_flag == 1) {
+			setTimer3(0);
+			clearBuffer();
 			printData = 1;
 			sysState = PRINT_MODE;
 		}
@@ -34,34 +47,6 @@ void command_parser_fsm(void) {
 		setTimer3(PARSER_TIMEOUT);
 		printData = 0;
 		sysState = WAIT_MODE;
-		break;
-
-	case WAIT_MODE:
-		if(isRST == 1) {
-			setTimer3(0);
-			isRST = 0;
-			printData = 1;
-			sysState = PRINT_MODE;
-			break;
-		}
-
-		if(isOK == 1) {
-			setTimer3(0);
-			isOK = 0;
-			printData = 0;
-			sysState = START_MODE;
-			break;
-		}
-
-		if(timer3_flag == 1) {
-			setTimer3(0);
-			clearBuffer();
-			printData = 1;
-			sysState = PRINT_MODE;
-			break;
-		}
-
-		setTimer3(PARSER_TIMEOUT);
 		break;
 	}
 }

@@ -50,7 +50,6 @@ void command_parser_fsm(void) {
 			isOK = 0;
 			printData = 0;
 			sysState = START_MODE;
-			break;
 		}
 
 		if(timer3_flag == 1) {
@@ -58,11 +57,7 @@ void command_parser_fsm(void) {
 			clearBuffer();
 			printData = 1;
 			sysState = PRINT_MODE;
-			break;
 		}
-
-		setTimer3(PARSER_TIMEOUT);
-		break;
 	}
 }
 

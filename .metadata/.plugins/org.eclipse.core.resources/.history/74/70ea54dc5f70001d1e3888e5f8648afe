@@ -15,9 +15,8 @@ typedef enum {
 } sensorReaderState;
 
 typedef enum {
-	START_MODE,
-	PRINT_MODE,
 	WAIT_MODE,
+	PRINT_MODE
 } systemState;
 
 typedef enum {
