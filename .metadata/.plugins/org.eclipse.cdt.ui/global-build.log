@@ -1535,3 +1535,133 @@ Finished building: UART_Communication.bin
  
 Finished building: UART_Communication.list
  
+20:41:32 **** Incremental Build of configuration Debug for project UART_Communication ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "UART_Communication.elf" @"objects.list"   -mcpu=cortex-m3 -T"C:\Users\ADMIN\Documents\MCU\Lab5\UART_Communication\STM32F103C6UX_FLASH.ld" --specs=nosys.specs -Wl,-Map="UART_Communication.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: UART_Communication.elf
+ 
+arm-none-eabi-size   UART_Communication.elf 
+arm-none-eabi-objdump -h -S  UART_Communication.elf  > "UART_Communication.list"
+arm-none-eabi-objcopy  -O ihex  UART_Communication.elf  "UART_Communication.hex"
+arm-none-eabi-objcopy  -O binary  UART_Communication.elf  "UART_Communication.bin"
+   text	   data	    bss	    dec	    hex	filename
+  16160	    120	   1864	  18144	   46e0	UART_Communication.elf
+Finished building: default.size.stdout
+ 
+Finished building: UART_Communication.hex
+Finished building: UART_Communication.bin
+ 
+ 
+Finished building: UART_Communication.list
+ 
+20:55:58 **** Incremental Build of configuration Debug for project UART_Communication ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "UART_Communication.elf" @"objects.list"   -mcpu=cortex-m3 -T"C:\Users\ADMIN\Documents\MCU\Lab5\UART_Communication\STM32F103C6UX_FLASH.ld" --specs=nosys.specs -Wl,-Map="UART_Communication.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: UART_Communication.elf
+ 
+arm-none-eabi-size   UART_Communication.elf 
+arm-none-eabi-objdump -h -S  UART_Communication.elf  > "UART_Communication.list"
+arm-none-eabi-objcopy  -O ihex  UART_Communication.elf  "UART_Communication.hex"
+arm-none-eabi-objcopy  -O binary  UART_Communication.elf  "UART_Communication.bin"
+   text	   data	    bss	    dec	    hex	filename
+  13268	     20	   1836	  15124	   3b14	UART_Communication.elf
+Finished building: default.size.stdout
+ 
+Finished building: UART_Communication.hex
+Finished building: UART_Communication.bin
+ 
+ 
+Finished building: UART_Communication.list
+ 
+20:57:28 **** Incremental Build of configuration Debug for project UART_Communication ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/debug_led.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/debug_led.d" -MT"Core/Src/debug_led.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/debug_led.o"
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+../Core/Src/debug_led.c: In function 'led_blinky_fsm':
+../Core/Src/debug_led.c:12:2: warning: enumeration value 'LED_INIT' not handled in switch [-Wswitch]
+   12 |  switch(ledState) {
+      |  ^~~~~~
+../Core/Src/debug_led.c:12:2: warning: enumeration value 'LED_BLINKING' not handled in switch [-Wswitch]
+../Core/Src/debug_led.c:20:18: warning: statement will never be executed [-Wswitch-unreachable]
+   20 |   if(timer1_flag == 1) {
+      |      ~~~~~~~~~~~~^~~~
+arm-none-eabi-gcc -o "UART_Communication.elf" @"objects.list"   -mcpu=cortex-m3 -T"C:\Users\ADMIN\Documents\MCU\Lab5\UART_Communication\STM32F103C6UX_FLASH.ld" --specs=nosys.specs -Wl,-Map="UART_Communication.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: UART_Communication.elf
+ 
+arm-none-eabi-size   UART_Communication.elf 
+arm-none-eabi-objdump -h -S  UART_Communication.elf  > "UART_Communication.list"
+arm-none-eabi-objcopy  -O ihex  UART_Communication.elf  "UART_Communication.hex"
+arm-none-eabi-objcopy  -O binary  UART_Communication.elf  "UART_Communication.bin"
+   text	   data	    bss	    dec	    hex	filename
+  13160	     20	   1828	  15008	   3aa0	UART_Communication.elf
+Finished building: default.size.stdout
+ 
+Finished building: UART_Communication.hex
+Finished building: UART_Communication.bin
+ 
+ 
+Finished building: UART_Communication.list
+ 
+20:57:53 **** Incremental Build of configuration Debug for project UART_Communication ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/debug_led.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/debug_led.d" -MT"Core/Src/debug_led.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/debug_led.o"
+../Core/Src/debug_led.c: In function 'led_blinky_fsm':
+../Core/Src/debug_led.c:24:3: error: break statement not within loop or switch
+   24 |   break;
+      |   ^~~~~
+../Core/Src/debug_led.c: At top level:
+../Core/Src/debug_led.c:26:1: error: expected identifier or '(' before '}' token
+   26 | }
+      | ^
+make: *** [Core/Src/subdir.mk:61: Core/Src/debug_led.o] Error 1
+"make -j12 all" terminated with exit code 2. Build might be incomplete.
+20:58:13 **** Incremental Build of configuration Debug for project UART_Communication ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/debug_led.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/debug_led.d" -MT"Core/Src/debug_led.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/debug_led.o"
+arm-none-eabi-gcc -o "UART_Communication.elf" @"objects.list"   -mcpu=cortex-m3 -T"C:\Users\ADMIN\Documents\MCU\Lab5\UART_Communication\STM32F103C6UX_FLASH.ld" --specs=nosys.specs -Wl,-Map="UART_Communication.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: UART_Communication.elf
+ 
+arm-none-eabi-size   UART_Communication.elf 
+arm-none-eabi-objdump -h -S  UART_Communication.elf  > "UART_Communication.list"
+arm-none-eabi-objcopy  -O ihex  UART_Communication.elf  "UART_Communication.hex"
+arm-none-eabi-objcopy  -O binary  UART_Communication.elf  "UART_Communication.bin"
+   text	   data	    bss	    dec	    hex	filename
+  13240	     20	   1828	  15088	   3af0	UART_Communication.elf
+Finished building: default.size.stdout
+ 
+Finished building: UART_Communication.hex
+Finished building: UART_Communication.bin
+ 
+ 
+Finished building: UART_Communication.list
+ 
+21:04:58 **** Incremental Build of configuration Debug for project UART_Communication ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/debug_led.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/debug_led.d" -MT"Core/Src/debug_led.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/debug_led.o"
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "UART_Communication.elf" @"objects.list"   -mcpu=cortex-m3 -T"C:\Users\ADMIN\Documents\MCU\Lab5\UART_Communication\STM32F103C6UX_FLASH.ld" --specs=nosys.specs -Wl,-Map="UART_Communication.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: UART_Communication.elf
+ 
+arm-none-eabi-size   UART_Communication.elf 
+arm-none-eabi-objdump -h -S  UART_Communication.elf  > "UART_Communication.list"
+arm-none-eabi-objcopy  -O ihex  UART_Communication.elf  "UART_Communication.hex"
+arm-none-eabi-objcopy  -O binary  UART_Communication.elf  "UART_Communication.bin"
+   text	   data	    bss	    dec	    hex	filename
+  16348	    120	   1864	  18332	   479c	UART_Communication.elf
+Finished building: default.size.stdout
+ 
+Finished building: UART_Communication.hex
+Finished building: UART_Communication.bin
+ 
+ 
+Finished building: UART_Communication.list
+ 
+21:59:11 **** Incremental Build of configuration Debug for project UART_Communication ****
+make -j12 all 
+arm-none-eabi-size   UART_Communication.elf 
+   text	   data	    bss	    dec	    hex	filename
+  16348	    120	   1864	  18332	   479c	UART_Communication.elf
+Finished building: default.size.stdout
+ 
